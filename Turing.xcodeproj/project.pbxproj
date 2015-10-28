@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CBE6046C1BE0376B00585407 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE6046B1BE0376B00585407 /* CloudKit.framework */; };
 		CBF5AA771BDE7EA400BD4947 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF5AA761BDE7EA400BD4947 /* AppDelegate.swift */; };
 		CBF5AA791BDE7EA400BD4947 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF5AA781BDE7EA400BD4947 /* MasterViewController.swift */; };
 		CBF5AA7B1BDE7EA500BD4947 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF5AA7A1BDE7EA400BD4947 /* DetailViewController.swift */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CBE6046A1BE0376100585407 /* Turing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Turing.entitlements; sourceTree = "<group>"; };
+		CBE6046B1BE0376B00585407 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CBF5AA731BDE7EA400BD4947 /* Turing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Turing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF5AA761BDE7EA400BD4947 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBF5AA781BDE7EA400BD4947 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBE6046C1BE0376B00585407 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +83,7 @@
 		CBF5AA6A1BDE7EA400BD4947 = {
 			isa = PBXGroup;
 			children = (
+				CBE6046B1BE0376B00585407 /* CloudKit.framework */,
 				CBF5AA751BDE7EA400BD4947 /* Turing */,
 				CBF5AA8C1BDE7EA500BD4947 /* TuringTests */,
 				CBF5AA971BDE7EA500BD4947 /* TuringUITests */,
@@ -99,6 +104,7 @@
 		CBF5AA751BDE7EA400BD4947 /* Turing */ = {
 			isa = PBXGroup;
 			children = (
+				CBE6046A1BE0376100585407 /* Turing.entitlements */,
 				CBF5AA761BDE7EA400BD4947 /* AppDelegate.swift */,
 				CBF5AA781BDE7EA400BD4947 /* MasterViewController.swift */,
 				CBF5AA7A1BDE7EA400BD4947 /* DetailViewController.swift */,
@@ -195,6 +201,12 @@
 				TargetAttributes = {
 					CBF5AA721BDE7EA400BD4947 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = AKU8LU4XTN;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					CBF5AA881BDE7EA500BD4947 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -402,10 +414,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Turing/Turing.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Turing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.PilzArche.Turing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Pilz.Turing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -413,10 +429,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Turing/Turing.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Turing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.PilzArche.Turing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Pilz.Turing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -487,6 +507,7 @@
 				CBF5AA9F1BDE7EA500BD4947 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CBF5AAA01BDE7EA500BD4947 /* Build configuration list for PBXNativeTarget "TuringTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +516,7 @@
 				CBF5AAA21BDE7EA500BD4947 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CBF5AAA31BDE7EA500BD4947 /* Build configuration list for PBXNativeTarget "TuringUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +525,7 @@
 				CBF5AAA51BDE7EA500BD4947 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

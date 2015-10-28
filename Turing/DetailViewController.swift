@@ -2,8 +2,7 @@
 //  DetailViewController.swift
 //  Turing
 //
-//  Created by Jason Pilz on 10/26/15.
-//  Copyright © 2015 Jason Pilz. All rights reserved.
+//  Created by Aaron Careaga & Jason Pilz on 10/26/15.
 //
 
 import UIKit
