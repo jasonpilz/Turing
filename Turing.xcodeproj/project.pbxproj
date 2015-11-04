@@ -80,6 +80,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CBED96F01BEAC5E2006E4DE8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CBED96F11BEAC5E8006E4DE8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CBF5AA7C1BDE7EA500BD4947 /* Main.storyboard */,
+				CBF5AA811BDE7EA500BD4947 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		CBED96F21BEAC5ED006E4DE8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CBF5AA761BDE7EA400BD4947 /* AppDelegate.swift */,
+				CBF5AA781BDE7EA400BD4947 /* MasterViewController.swift */,
+				CBF5AA7A1BDE7EA400BD4947 /* DetailViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		CBF5AA6A1BDE7EA400BD4947 = {
 			isa = PBXGroup;
 			children = (
@@ -105,12 +131,10 @@
 			isa = PBXGroup;
 			children = (
 				CBE6046A1BE0376100585407 /* Turing.entitlements */,
-				CBF5AA761BDE7EA400BD4947 /* AppDelegate.swift */,
-				CBF5AA781BDE7EA400BD4947 /* MasterViewController.swift */,
-				CBF5AA7A1BDE7EA400BD4947 /* DetailViewController.swift */,
-				CBF5AA7C1BDE7EA500BD4947 /* Main.storyboard */,
+				CBED96F01BEAC5E2006E4DE8 /* Model */,
+				CBED96F11BEAC5E8006E4DE8 /* View */,
+				CBED96F21BEAC5ED006E4DE8 /* Controller */,
 				CBF5AA7F1BDE7EA500BD4947 /* Assets.xcassets */,
-				CBF5AA811BDE7EA500BD4947 /* LaunchScreen.storyboard */,
 				CBF5AA841BDE7EA500BD4947 /* Info.plist */,
 			);
 			path = Turing;
