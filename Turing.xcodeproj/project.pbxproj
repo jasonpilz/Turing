@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CB530CBB1BE97C16006C2484 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB530CBA1BE97C16006C2484 /* CloudKit.framework */; };
+		CBED96F41BEAC6AF006E4DE8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBED96F31BEAC6AF006E4DE8 /* Model.swift */; };
+		CBED96F51BEAC6AF006E4DE8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBED96F31BEAC6AF006E4DE8 /* Model.swift */; };
+		CBED96F71BEAC6C3006E4DE8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBED96F61BEAC6C3006E4DE8 /* Person.swift */; };
+		CBED96F81BEAC6C3006E4DE8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBED96F61BEAC6C3006E4DE8 /* Person.swift */; };
 		CBF5AA771BDE7EA400BD4947 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF5AA761BDE7EA400BD4947 /* AppDelegate.swift */; };
 		CBF5AA791BDE7EA400BD4947 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF5AA781BDE7EA400BD4947 /* MasterViewController.swift */; };
 		CBF5AA7B1BDE7EA500BD4947 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF5AA7A1BDE7EA400BD4947 /* DetailViewController.swift */; };
@@ -38,6 +42,8 @@
 /* Begin PBXFileReference section */
 		CB530CBA1BE97C16006C2484 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CBE6046A1BE0376100585407 /* Turing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Turing.entitlements; sourceTree = "<group>"; };
+		CBED96F31BEAC6AF006E4DE8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = ../Model.swift; sourceTree = "<group>"; };
+		CBED96F61BEAC6C3006E4DE8 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = ../Person.swift; sourceTree = "<group>"; };
 		CBF5AA731BDE7EA400BD4947 /* Turing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Turing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF5AA761BDE7EA400BD4947 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBF5AA781BDE7EA400BD4947 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +89,8 @@
 		CBED96F01BEAC5E2006E4DE8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CBED96F31BEAC6AF006E4DE8 /* Model.swift */,
+				CBED96F61BEAC6C3006E4DE8 /* Person.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -294,9 +302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBED96F71BEAC6C3006E4DE8 /* Person.swift in Sources */,
 				CBF5AA7B1BDE7EA500BD4947 /* DetailViewController.swift in Sources */,
 				CBF5AA791BDE7EA400BD4947 /* MasterViewController.swift in Sources */,
 				CBF5AA771BDE7EA400BD4947 /* AppDelegate.swift in Sources */,
+				CBED96F41BEAC6AF006E4DE8 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBED96F81BEAC6C3006E4DE8 /* Person.swift in Sources */,
 				CBF5AA8E1BDE7EA500BD4947 /* TuringTests.swift in Sources */,
+				CBED96F51BEAC6AF006E4DE8 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
