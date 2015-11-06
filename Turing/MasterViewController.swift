@@ -3,7 +3,7 @@
 //  Turing
 //
 //  Created by Aaron Careaga & Jason Pilz on 10/26/15.
-// test push
+//
 
 import UIKit
 
@@ -16,14 +16,35 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        // self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        self.navigationItem.rightBarButtonItem = addButton
+        //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+        //self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        // Inform Navigation Controller to set the nav item title in white
+        self.navigationController?.navigationBar.barStyle = .Black
+        
+        // Sets the detail view controllers back button to custom teal color
+        UINavigationBar.appearance().tintColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
+        
+        // Set custom bottom navbar border
+        if let navigationController = self.navigationController {
+            
+            let navigationBar = navigationController.navigationBar
+            let navBorder: UIView = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 1, navigationBar.frame.size.width, 3))
+            // Set the color you want here
+            navBorder.backgroundColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
+            navBorder.opaque = true
+            self.navigationController?.navigationBar.addSubview(navBorder)
+        }
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -53,6 +74,8 @@ class MasterViewController: UITableViewController {
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
+        } else if segue.identifier == "showAddPerson" {
+            insertNewObject(self)
         }
     }
 

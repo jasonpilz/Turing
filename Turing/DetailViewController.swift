@@ -31,6 +31,10 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // This line informs Navigation Controller to set the nav item title in white
+        self.navigationController?.navigationBar.barStyle = .Black
+        
         self.configureView()
     }
 
@@ -41,6 +45,3 @@ class DetailViewController: UIViewController {
 
 
 }
-
-// maybe we need to add more features
-
