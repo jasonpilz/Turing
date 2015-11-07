@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CB08F9A41BEC49FE00283979 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB08F9A31BEC49FE00283979 /* DismissSegue.swift */; };
 		CB08F9A61BEC553500283979 /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB08F9A51BEC553500283979 /* AddPersonViewController.swift */; };
-		CB08F9A71BEC553500283979 /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB08F9A51BEC553500283979 /* AddPersonViewController.swift */; };
+		CB08F9A91BED5F0F00283979 /* DesignableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB08F9A81BED5F0F00283979 /* DesignableTableView.swift */; };
 		CB530CBB1BE97C16006C2484 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB530CBA1BE97C16006C2484 /* CloudKit.framework */; };
 		CBED96F41BEAC6AF006E4DE8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBED96F31BEAC6AF006E4DE8 /* Model.swift */; };
 		CBED96F51BEAC6AF006E4DE8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBED96F31BEAC6AF006E4DE8 /* Model.swift */; };
@@ -45,6 +45,7 @@
 /* Begin PBXFileReference section */
 		CB08F9A31BEC49FE00283979 /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		CB08F9A51BEC553500283979 /* AddPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
+		CB08F9A81BED5F0F00283979 /* DesignableTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTableView.swift; sourceTree = "<group>"; };
 		CB530CBA1BE97C16006C2484 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CBE6046A1BE0376100585407 /* Turing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Turing.entitlements; sourceTree = "<group>"; };
 		CBED96F31BEAC6AF006E4DE8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = ../Model.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 			children = (
 				CBF5AA7C1BDE7EA500BD4947 /* Main.storyboard */,
 				CBF5AA811BDE7EA500BD4947 /* LaunchScreen.storyboard */,
+				CB08F9A81BED5F0F00283979 /* DesignableTableView.swift */,
 				CB08F9A31BEC49FE00283979 /* DismissSegue.swift */,
 			);
 			name = View;
@@ -314,6 +316,7 @@
 				CBF5AA791BDE7EA400BD4947 /* MasterViewController.swift in Sources */,
 				CBF5AA771BDE7EA400BD4947 /* AppDelegate.swift in Sources */,
 				CB08F9A41BEC49FE00283979 /* DismissSegue.swift in Sources */,
+				CB08F9A91BED5F0F00283979 /* DesignableTableView.swift in Sources */,
 				CBED96F41BEAC6AF006E4DE8 /* Model.swift in Sources */,
 				CB08F9A61BEC553500283979 /* AddPersonViewController.swift in Sources */,
 			);
@@ -326,7 +329,6 @@
 				CBED96F81BEAC6C3006E4DE8 /* Person.swift in Sources */,
 				CBF5AA8E1BDE7EA500BD4947 /* TuringTests.swift in Sources */,
 				CBED96F51BEAC6AF006E4DE8 /* Model.swift in Sources */,
-				CB08F9A71BEC553500283979 /* AddPersonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +466,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Turing/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Pilz.Turing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -480,8 +482,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Turing/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Pilz.Turing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

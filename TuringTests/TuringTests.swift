@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Turing
+//@testable import Turing
 
 class TuringTests: XCTestCase {
     

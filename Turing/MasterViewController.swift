@@ -12,6 +12,7 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
 
+    let tealColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,18 +30,20 @@ class MasterViewController: UITableViewController {
         self.navigationController?.navigationBar.barStyle = .Black
         
         // Sets the detail view controllers back button to custom teal color
-        UINavigationBar.appearance().tintColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = tealColor
         
         // Set custom bottom navbar border
         if let navigationController = self.navigationController {
             
             let navigationBar = navigationController.navigationBar
-            let navBorder: UIView = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 1, navigationBar.frame.size.width, 3))
-            // Set the color you want here
-            navBorder.backgroundColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
+            let navBorder: UIView = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 3, navigationBar.frame.size.width, 3))
+            navBorder.backgroundColor = tealColor
             navBorder.opaque = true
             self.navigationController?.navigationBar.addSubview(navBorder)
         }
+        
+        self.navigationController?.toolbarHidden = false
+        self.navigationController?.toolbar.barTintColor = tealColor
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -94,6 +97,7 @@ class MasterViewController: UITableViewController {
 
         let object = objects[indexPath.row] as! NSDate
         cell.textLabel!.text = object.description
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
 

@@ -10,6 +10,8 @@ import UIKit
 
 class AddPersonViewController: UITableViewController, UITextFieldDelegate {
     
+    let tealColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,9 +26,8 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
         if let navigationController = self.navigationController {
             
             let navigationBar = navigationController.navigationBar
-            let navBorder: UIView = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 1, navigationBar.frame.size.width, 3))
-            // Set the color you want here
-            navBorder.backgroundColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
+            let navBorder: UIView = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 3, navigationBar.frame.size.width, 3))
+            navBorder.backgroundColor = tealColor
             navBorder.opaque = true
             self.navigationController?.navigationBar.addSubview(navBorder)
         }
