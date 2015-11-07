@@ -20,16 +20,27 @@ class TuringTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    // MARK: - Person Tests
+    
+    func testPersonInitialization() {
+        
+        // Success case
+        let potentialPerson = Person.init(firstName: "Jason", lastName: "Pilz", emailAddress: "jasonpilz@gmail.com", phoneNumber: "720-717-1887", slackScreenName: "jasonpilz", githubUserName: "jasonpilz", twitterUserName: "JasonPilz", linkedInUserName: "Jason Pilz", posse: "Kay", cohort: 1508, employer: "", bio: "", isAlumnus: false, isStaff: false, isMentor: false)
+        XCTAssertNotNil(potentialPerson)
+        
+        // Failure cases
+        let noFirstName = Person.init(firstName: "", lastName: "Pilz", emailAddress: "jasonpilz@gmail.com", phoneNumber: "720-717-1887", slackScreenName: "jasonpilz", githubUserName: "jasonpilz", twitterUserName: "JasonPilz", linkedInUserName: "Jason Pilz", posse: "Kay", cohort: 1508, employer: "", bio: "", isAlumnus: false, isStaff: false, isMentor: false)
+        XCTAssertNil(noFirstName, "Empty first name is Invalid")
+        
+        let noLastName = Person.init(firstName: "Jason", lastName: "", emailAddress: "jasonpilz@gmail.com", phoneNumber: "720-717-1887", slackScreenName: "jasonpilz", githubUserName: "jasonpilz", twitterUserName: "JasonPilz", linkedInUserName: "Jason Pilz", posse: "Kay", cohort: 1508, employer: "", bio: "", isAlumnus: false, isStaff: false, isMentor: false)
+        XCTAssertNil(noLastName, "Empty last name is Invalid")
     }
     
 }

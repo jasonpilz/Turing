@@ -34,7 +34,11 @@ class Person: NSObject {
     
     // MARK: - Initializers
     
+    // Failable initializer
     init?(firstName: String, lastName: String, emailAddress: String?, phoneNumber: String?, slackScreenName: String?, githubUserName: String?, twitterUserName: String?, linkedInUserName: String?, posse: String?, cohort: Int?, employer: String?, bio: String?, isAlumnus: Bool, isStaff: Bool, isMentor: Bool) {
+        
+        super.init()
+        
         self.firstName = firstName
         self.lastName = lastName
         self.emailAddress = emailAddress
@@ -51,5 +55,9 @@ class Person: NSObject {
         self.isStaff = isStaff
         self.isMentor = isMentor
         self.dateAdded = NSDate()
+        
+        if firstName.isEmpty || lastName.isEmpty {
+            return nil
+        }
     }
 }
