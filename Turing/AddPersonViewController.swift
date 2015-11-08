@@ -43,6 +43,7 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "dismissAndSave" {
             
+            print("Time for some CloudKit Storage!!")
             // CloudKit Storage
         }
     }

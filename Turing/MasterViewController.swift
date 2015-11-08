@@ -11,6 +11,7 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
+    let people = ["Aaron Careaga", "Ryan Johnson", "Jason Pilz", "Pat Wey", "Matt Stjernholm", "John Slota", "Josh Cheek"]
 
     let tealColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
 
@@ -32,15 +33,7 @@ class MasterViewController: UITableViewController {
         // Sets the detail view controllers back button to custom teal color
         UINavigationBar.appearance().tintColor = tealColor
         
-        // Set custom bottom navbar border
-        if let navigationController = self.navigationController {
-            
-            let navigationBar = navigationController.navigationBar
-            let navBorder: UIView = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 3, navigationBar.frame.size.width, 3))
-            navBorder.backgroundColor = tealColor
-            navBorder.opaque = true
-            self.navigationController?.navigationBar.addSubview(navBorder)
-        }
+        self.setNavbarBottomBorder()
         
         self.navigationController?.toolbarHidden = false
         self.navigationController?.toolbar.barTintColor = tealColor
@@ -49,7 +42,7 @@ class MasterViewController: UITableViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
@@ -61,7 +54,8 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        objects.insert(NSDate(), atIndex: 0)
+        
+        objects.insert(people.randomItem(), atIndex: 0)//(NSDate(), atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
@@ -71,7 +65,7 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = objects[indexPath.row] as! String//NSDate
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -95,8 +89,8 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let object = objects[indexPath.row] as! String//NSDate
+        cell.textLabel!.text = object//object.description
         cell.backgroundColor = UIColor.clearColor()
         return cell
     }
@@ -114,4 +108,24 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
+    
+    // MARK: - Custom Functions
+    
+    func setNavbarBottomBorder() {
+        
+        if let navigationController = self.navigationController {
+            let navigationBar = navigationController.navigationBar
+            let navBorder: UIView = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 3, navigationBar.frame.size.width, 3))
+            navBorder.backgroundColor = tealColor
+            navBorder.opaque = true
+            self.navigationController?.navigationBar.addSubview(navBorder)
+        }
+    }
 }
+
+    extension Array {
+        func randomItem() -> Element {
+            let index = Int(arc4random_uniform(UInt32(self.count)))
+            return self[index]
+        }
+    }
