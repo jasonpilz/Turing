@@ -39,10 +39,6 @@ class MasterViewController: UITableViewController {
         self.navigationController?.toolbar.barTintColor = tealColor
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
-    }
-    
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)

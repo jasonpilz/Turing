@@ -12,8 +12,35 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
     
     let tealColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
     
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var phone: UITextField!
+    @IBOutlet weak var slack: UITextField!
+    @IBOutlet weak var github: UITextField!
+    @IBOutlet weak var twitter: UITextField!
+    @IBOutlet weak var linkedIn: UITextField!
+    @IBOutlet weak var posse: UITextField!
+    @IBOutlet weak var cohort: UITextField!
+    @IBOutlet weak var employer: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Allows the textFieldShouldReturn method to work
+        firstName.delegate = self
+        lastName.delegate = self
+        email.delegate = self
+        phone.delegate = self
+        slack.delegate = self
+        github.delegate = self
+        twitter.delegate = self
+        linkedIn.delegate = self
+        posse.delegate = self
+        cohort.delegate = self
+        employer.delegate = self
+        self.firstName.becomeFirstResponder()
         
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
@@ -31,6 +58,22 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
             navBorder.opaque = true
             self.navigationController?.navigationBar.addSubview(navBorder)
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        switch textField {
+        case firstName: self.lastName.becomeFirstResponder()
+        case lastName: self.email.becomeFirstResponder()
+        case email: self.phone.becomeFirstResponder()
+        case phone: self.slack.becomeFirstResponder()
+        case slack: self.github.becomeFirstResponder()
+        case github: self.twitter.becomeFirstResponder()
+        case twitter: self.linkedIn.becomeFirstResponder()
+        case linkedIn: self.posse.becomeFirstResponder()
+        case posse: self.cohort.becomeFirstResponder()
+        default: return false
+        }
+        return true
     }
     
     override func didReceiveMemoryWarning() {
