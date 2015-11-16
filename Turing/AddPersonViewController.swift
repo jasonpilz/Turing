@@ -23,7 +23,9 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var posse: UITextField!
     @IBOutlet weak var cohort: UITextField!
     @IBOutlet weak var employer: UITextField!
-    
+    @IBOutlet weak var staff: UISwitch!
+    @IBOutlet weak var mentor: UISwitch!
+    @IBOutlet weak var alumni: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +60,10 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
             navBorder.opaque = true
             self.navigationController?.navigationBar.addSubview(navBorder)
         }
+        
+        self.staff.onTintColor = tealColor
+        self.mentor.onTintColor = tealColor
+        self.alumni.onTintColor = tealColor
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -86,8 +92,23 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "dismissAndSave" {
             
-            print("Time for some CloudKit Storage!!")
+            let person = Person.init(firstName: firstName.text!,
+                lastName: lastName.text!,
+                emailAddress: email.text!,
+                phoneNumber: phone.text!,
+                slackScreenName: slack.text!,
+                githubUserName: github.text!,
+                twitterUserName: twitter.text!,
+                linkedInUserName: linkedIn.text!,
+                posse: posse.text!,
+                cohort: (cohort.text as NSString!).integerValue,
+                employer: employer.text!,
+                isAlumnus: alumni.on,
+                isStaff: staff.on,
+                isMentor: mentor.on)
+            
             // CloudKit Storage
+            Model.sharedInstance.saveRecord(person!)
         }
     }
 }

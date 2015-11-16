@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Appearance Proxies
         UITextField.appearance().tintColor = tealColor
         UIBarButtonItem.appearance().tintColor = tealColor
-        UINavigationBar.appearance().barTintColor = UIColor(red: 38.0/255.0, green: 38.0/255.0, blue: 38.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 8.0/255.0, green: 8.0/255.0, blue: 8.0/255.0, alpha: 1.0)
         
         return true
     }

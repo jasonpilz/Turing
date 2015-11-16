@@ -26,7 +26,7 @@ class Person: NSObject {
     var posse: String?
     var cohort: Int?
     var employer: String?
-    var bio: String?
+    //var bio: String?
     var isAlumnus: Bool = false
     var isStaff: Bool = false
     var isMentor: Bool = false
@@ -35,7 +35,7 @@ class Person: NSObject {
     // MARK: - Initializers
     
     // Failable initializer
-    init?(firstName: String, lastName: String, emailAddress: String?, phoneNumber: String?, slackScreenName: String?, githubUserName: String?, twitterUserName: String?, linkedInUserName: String?, posse: String?, cohort: Int?, employer: String?, bio: String?, isAlumnus: Bool, isStaff: Bool, isMentor: Bool) {
+    init?(firstName: String, lastName: String, emailAddress: String?, phoneNumber: String?, slackScreenName: String?, githubUserName: String?, twitterUserName: String?, linkedInUserName: String?, posse: String?, cohort: Int?, employer: String?, isAlumnus: Bool, isStaff: Bool, isMentor: Bool) {
         
         super.init()
         
@@ -50,7 +50,6 @@ class Person: NSObject {
         self.posse = posse
         self.cohort = cohort
         self.employer = employer
-        self.bio = bio
         self.isAlumnus = isAlumnus
         self.isStaff = isStaff
         self.isMentor = isMentor
