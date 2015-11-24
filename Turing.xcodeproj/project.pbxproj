@@ -518,10 +518,12 @@
 		CBF5AAA41BDE7EA500BD4947 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Pilz (T5AQ9HJE8B)";
 				INFOPLIST_FILE = TuringUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PilzArche.TuringUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9225e9ef-63b6-41f9-90c5-9129cd84eec8";
 				TEST_TARGET_NAME = Turing;
 				USES_XCTRUNNER = YES;
 			};
@@ -530,10 +532,12 @@
 		CBF5AAA51BDE7EA500BD4947 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Pilz (T5AQ9HJE8B)";
 				INFOPLIST_FILE = TuringUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PilzArche.TuringUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9225e9ef-63b6-41f9-90c5-9129cd84eec8";
 				TEST_TARGET_NAME = Turing;
 				USES_XCTRUNNER = YES;
 			};
