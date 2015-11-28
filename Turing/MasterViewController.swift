@@ -33,7 +33,7 @@ class MasterViewController: UITableViewController {
         // Sets the detail view controllers back button to custom teal color
         UINavigationBar.appearance().tintColor = tealColor
         
-        self.setNavbarBottomBorder()
+        //self.setNavbarBottomBorder()
         
         self.navigationController?.toolbarHidden = false
         self.navigationController?.toolbar.barTintColor = tealColor
@@ -42,6 +42,12 @@ class MasterViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
+        self.setNavbarBottomBorder()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        // REMOVE navBorder from Navigation Controller.navbar view heirarchy...need to pull it into instance var to specify it during removal.
+        self.setNavbarBottomBorder()
     }
 
     override func didReceiveMemoryWarning() {
