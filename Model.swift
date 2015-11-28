@@ -37,6 +37,11 @@ class Model {
     
     // MARK: - Functions
     
+    func addPerson(person: Person) {
+        people.append(person)
+        self.delegate?.modelUpdated()
+    }
+    
     func notifyUser(title: String, message: String) -> Void {
         let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK")
         alert.show()

@@ -108,7 +108,10 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
                 isMentor: mentor.on)
             
             // CloudKit Storage
-            Model.sharedInstance.saveRecord(person!)
+            // Model.sharedInstance.saveRecord(person!)
+            
+            // Local Storage
+            Model.sharedInstance.addPerson(person!)
         }
     }
 }
