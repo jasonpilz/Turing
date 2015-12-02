@@ -518,6 +518,7 @@
 		CBF5AAA41BDE7EA500BD4947 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = Turing/Turing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Pilz (T5AQ9HJE8B)";
 				INFOPLIST_FILE = TuringUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -532,6 +533,7 @@
 		CBF5AAA51BDE7EA500BD4947 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = Turing/Turing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Pilz (T5AQ9HJE8B)";
 				INFOPLIST_FILE = TuringUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
