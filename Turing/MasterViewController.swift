@@ -32,7 +32,7 @@ class MasterViewController: UITableViewController, ModelDelegate {
         
         // Sets the detail view controllers back button to custom teal color
         UINavigationBar.appearance().tintColor = tealColor
-                
+        
         self.navigationController?.toolbarHidden = false
         self.navigationController?.toolbar.barTintColor = tealColor
     }
