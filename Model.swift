@@ -42,14 +42,22 @@ class Model {
         self.delegate?.modelUpdated()
     }
     
+//    DEPRICATED
+//    func notifyUser(title: String, message: String) -> Void {
+//        let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK")
+//        alert.show()
+//    }
+    
     func notifyUser(title: String, message: String) -> Void {
-        let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK")
-        alert.show()
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: .Alert)
+        let OKAction = UIAlertAction.init(title: "OK", style: .Default, handler: nil)
+        alert.addAction(OKAction)
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
     }
     
     func toCKRecord(person: Person) -> CKRecord {
         let myRecord = CKRecord(recordType: "Person")
-        myRecord.setObject(person.firstName, forKey: "firstName")
+        myRecord.setObject(person.givenName, forKey: "givenName")
         myRecord.setObject(person.lastName, forKey: "lastName")
         myRecord.setObject(person.emailAddress, forKey: "emailAddress")
         myRecord.setObject(person.phoneNumber, forKey: "phoneNumber")
@@ -77,6 +85,8 @@ class Model {
                 self.notifyUser("Save Error", message: err.localizedDescription)
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
+                    // Save locally
+                    self.addPerson(person)
                     print("Record saved successfuly")
                     self.notifyUser("Success", message: "Person saved successfully")
                 }

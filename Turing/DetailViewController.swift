@@ -10,9 +10,9 @@ import UIKit
 class DetailViewController: UIViewController {
     
     let tealColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
+    var navBorder:UIView = UIView()
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
 
     var detailItem: AnyObject? {
         didSet {
@@ -24,9 +24,7 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let person = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = person.firstName
-            }
+            self.navigationItem.title = person.givenName
         }
     }
 
@@ -41,23 +39,28 @@ class DetailViewController: UIViewController {
         self.navigationController?.toolbarHidden = false
         self.navigationController?.toolbar.barTintColor = tealColor
         
-        // Set custom bottom navbar border
-        if let navigationController = self.navigationController {
-            
-            let navigationBar = navigationController.navigationBar
-            let navBorder: UIView = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 3, navigationBar.frame.size.width, 3))
-            navBorder.backgroundColor = tealColor
-            navBorder.opaque = true
-            self.navigationController?.navigationBar.addSubview(navBorder)
-        }
-        
         self.configureView()
     }
+    
+//    override func viewWillLayoutSubviews() {
+//        self.navBorder.removeFromSuperview()
+//        self.setNavbarBottomBorder()
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    // MARK: - Custom Functions
+    
+//    func setNavbarBottomBorder() {
+//        if let navigationController = self.navigationController {
+//            let navigationBar = navigationController.navigationBar
+//            self.navBorder = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 3, navigationBar.frame.size.width, 3))
+//            navBorder.backgroundColor = tealColor
+//            navBorder.opaque = true
+//            self.navigationController?.navigationBar.addSubview(self.navBorder)
+//        }
+//    }
 }

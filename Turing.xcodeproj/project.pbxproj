@@ -23,6 +23,8 @@
 		CBF5AA831BDE7EA500BD4947 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF5AA811BDE7EA500BD4947 /* LaunchScreen.storyboard */; };
 		CBF5AA8E1BDE7EA500BD4947 /* TuringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF5AA8D1BDE7EA500BD4947 /* TuringTests.swift */; };
 		CBF5AA991BDE7EA500BD4947 /* TuringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF5AA981BDE7EA500BD4947 /* TuringUITests.swift */; };
+		CBFB67621C1096FA00CD9498 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB67611C1096FA00CD9498 /* BaseTableViewController.swift */; };
+		CBFB67631C1096FA00CD9498 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB67611C1096FA00CD9498 /* BaseTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,26 +46,27 @@
 
 /* Begin PBXFileReference section */
 		CB08F9A31BEC49FE00283979 /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
-		CB08F9A51BEC553500283979 /* AddPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
+		CB08F9A51BEC553500283979 /* AddPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AddPersonViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CB08F9A81BED5F0F00283979 /* DesignableTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTableView.swift; sourceTree = "<group>"; };
 		CB530CBA1BE97C16006C2484 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CBE6046A1BE0376100585407 /* Turing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Turing.entitlements; sourceTree = "<group>"; };
-		CBED96F31BEAC6AF006E4DE8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = ../Model.swift; sourceTree = "<group>"; };
-		CBED96F61BEAC6C3006E4DE8 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = ../Person.swift; sourceTree = "<group>"; };
+		CBED96F31BEAC6AF006E4DE8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Model.swift; path = ../Model.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		CBED96F61BEAC6C3006E4DE8 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Person.swift; path = ../Person.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CBF5AA731BDE7EA400BD4947 /* Turing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Turing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF5AA761BDE7EA400BD4947 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBF5AA781BDE7EA400BD4947 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		CBF5AA7A1BDE7EA400BD4947 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CBF5AA781BDE7EA400BD4947 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MasterViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		CBF5AA7A1BDE7EA400BD4947 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CBF5AA7D1BDE7EA500BD4947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBF5AA7F1BDE7EA500BD4947 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBF5AA821BDE7EA500BD4947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBF5AA841BDE7EA500BD4947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBF5AA891BDE7EA500BD4947 /* TuringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuringTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBF5AA8D1BDE7EA500BD4947 /* TuringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuringTests.swift; sourceTree = "<group>"; };
+		CBF5AA8D1BDE7EA500BD4947 /* TuringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TuringTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CBF5AA8F1BDE7EA500BD4947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBF5AA941BDE7EA500BD4947 /* TuringUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuringUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF5AA981BDE7EA500BD4947 /* TuringUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuringUITests.swift; sourceTree = "<group>"; };
 		CBF5AA9A1BDE7EA500BD4947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBFB67611C1096FA00CD9498 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				CBF5AA761BDE7EA400BD4947 /* AppDelegate.swift */,
+				CBFB67611C1096FA00CD9498 /* BaseTableViewController.swift */,
 				CBF5AA781BDE7EA400BD4947 /* MasterViewController.swift */,
 				CBF5AA7A1BDE7EA400BD4947 /* DetailViewController.swift */,
 				CB08F9A51BEC553500283979 /* AddPersonViewController.swift */,
@@ -313,6 +317,7 @@
 			files = (
 				CBED96F71BEAC6C3006E4DE8 /* Person.swift in Sources */,
 				CBF5AA7B1BDE7EA500BD4947 /* DetailViewController.swift in Sources */,
+				CBFB67621C1096FA00CD9498 /* BaseTableViewController.swift in Sources */,
 				CBF5AA791BDE7EA400BD4947 /* MasterViewController.swift in Sources */,
 				CBF5AA771BDE7EA400BD4947 /* AppDelegate.swift in Sources */,
 				CB08F9A41BEC49FE00283979 /* DismissSegue.swift in Sources */,
@@ -327,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBED96F81BEAC6C3006E4DE8 /* Person.swift in Sources */,
+				CBFB67631C1096FA00CD9498 /* BaseTableViewController.swift in Sources */,
 				CBF5AA8E1BDE7EA500BD4947 /* TuringTests.swift in Sources */,
 				CBED96F51BEAC6AF006E4DE8 /* Model.swift in Sources */,
 			);

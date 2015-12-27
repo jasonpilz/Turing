@@ -32,14 +32,14 @@ class TuringTests: XCTestCase {
     func testPersonInitialization() {
         
         // Success case
-        let potentialPerson = Person.init(firstName: "Jason", lastName: "Pilz", emailAddress: "jasonpilz@gmail.com", phoneNumber: "720-717-1887", slackScreenName: "jasonpilz", githubUserName: "jasonpilz", twitterUserName: "JasonPilz", linkedInUserName: "Jason Pilz", posse: "Kay", cohort: 1508, employer: "", bio: "", isAlumnus: false, isStaff: false, isMentor: false)
+        let potentialPerson = Person.init(givenName: "Jason", lastName: "Pilz", emailAddress: "jasonpilz@gmail.com", phoneNumber: "720-717-1887", slackScreenName: "jasonpilz", githubUserName: "jasonpilz", twitterUserName: "JasonPilz", linkedInUserName: "Jason Pilz", posse: "Kay", cohort: 1508, employer: "", isAlumnus: false, isStaff: false, isMentor: false)
         XCTAssertNotNil(potentialPerson)
         
         // Failure cases
-        let noFirstName = Person.init(firstName: "", lastName: "Pilz", emailAddress: "jasonpilz@gmail.com", phoneNumber: "720-717-1887", slackScreenName: "jasonpilz", githubUserName: "jasonpilz", twitterUserName: "JasonPilz", linkedInUserName: "Jason Pilz", posse: "Kay", cohort: 1508, employer: "", bio: "", isAlumnus: false, isStaff: false, isMentor: false)
-        XCTAssertNil(noFirstName, "Empty first name is Invalid")
+        let nogivenName = Person.init(givenName: "", lastName: "Pilz", emailAddress: "jasonpilz@gmail.com", phoneNumber: "720-717-1887", slackScreenName: "jasonpilz", githubUserName: "jasonpilz", twitterUserName: "JasonPilz", linkedInUserName: "Jason Pilz", posse: "Kay", cohort: 1508, employer: "", isAlumnus: false, isStaff: false, isMentor: false)
+        XCTAssertNil(nogivenName, "Empty first name is Invalid")
         
-        let noLastName = Person.init(firstName: "Jason", lastName: "", emailAddress: "jasonpilz@gmail.com", phoneNumber: "720-717-1887", slackScreenName: "jasonpilz", githubUserName: "jasonpilz", twitterUserName: "JasonPilz", linkedInUserName: "Jason Pilz", posse: "Kay", cohort: 1508, employer: "", bio: "", isAlumnus: false, isStaff: false, isMentor: false)
+        let noLastName = Person.init(givenName: "Jason", lastName: "", emailAddress: "jasonpilz@gmail.com", phoneNumber: "720-717-1887", slackScreenName: "jasonpilz", githubUserName: "jasonpilz", twitterUserName: "JasonPilz", linkedInUserName: "Jason Pilz", posse: "Kay", cohort: 1508, employer: "", isAlumnus: false, isStaff: false, isMentor: false)
         XCTAssertNil(noLastName, "Empty last name is Invalid")
     }
     
