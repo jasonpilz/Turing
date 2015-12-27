@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController, ModelDelegate {
+class MasterViewController: BaseTableViewController, ModelDelegate {
 
     var detailViewController: DetailViewController? = nil
     var people = Model.sharedInstance.people
@@ -82,7 +82,7 @@ class MasterViewController: UITableViewController, ModelDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
         let person = people[indexPath.row]
-        cell.textLabel!.text = "\(person.firstName) \(person.lastName)"
+        cell.textLabel!.text = "\(person.givenName) \(person.lastName)"
         
         cell.backgroundColor = UIColor.clearColor()
         return cell
@@ -121,6 +121,7 @@ class MasterViewController: UITableViewController, ModelDelegate {
             self.navBorder = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 3, navigationBar.frame.size.width, 3))
             navBorder.backgroundColor = tealColor
             navBorder.opaque = true
+            //self.tableView.addSubview(self.navBorder)
             self.navigationController?.navigationBar.addSubview(self.navBorder)
         }
     }

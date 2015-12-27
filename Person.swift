@@ -15,7 +15,7 @@ class Person: NSObject {
     
     weak var database: CKDatabase!
     var record: CKRecord!
-    var firstName: String!
+    var givenName: String!
     var lastName: String!
     var emailAddress: String?
     var phoneNumber: String?
@@ -35,11 +35,11 @@ class Person: NSObject {
     // MARK: - Initializers
     
     // Failable initializer
-    init?(firstName: String, lastName: String, emailAddress: String?, phoneNumber: String?, slackScreenName: String?, githubUserName: String?, twitterUserName: String?, linkedInUserName: String?, posse: String?, cohort: Int?, employer: String?, isAlumnus: Bool, isStaff: Bool, isMentor: Bool) {
+    init?(givenName: String, lastName: String, emailAddress: String?, phoneNumber: String?, slackScreenName: String?, githubUserName: String?, twitterUserName: String?, linkedInUserName: String?, posse: String?, cohort: Int?, employer: String?, isAlumnus: Bool, isStaff: Bool, isMentor: Bool) {
         
         super.init()
         
-        self.firstName = firstName
+        self.givenName = givenName
         self.lastName = lastName
         self.emailAddress = emailAddress
         self.phoneNumber = phoneNumber
@@ -55,7 +55,7 @@ class Person: NSObject {
         self.isMentor = isMentor
         self.dateAdded = NSDate()
         
-        if firstName.isEmpty || lastName.isEmpty {
+        if givenName.isEmpty || lastName.isEmpty {
             return nil
         }
     }

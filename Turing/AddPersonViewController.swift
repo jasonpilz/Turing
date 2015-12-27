@@ -11,8 +11,9 @@ import UIKit
 class AddPersonViewController: UITableViewController, UITextFieldDelegate {
     
     let tealColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
+    var navBorder:UIView = UIView()
     
-    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var givenName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var phone: UITextField!
@@ -31,7 +32,7 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // Allows the textFieldShouldReturn method to work
-        firstName.delegate = self
+        givenName.delegate = self
         lastName.delegate = self
         email.delegate = self
         phone.delegate = self
@@ -42,7 +43,7 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
         posse.delegate = self
         cohort.delegate = self
         employer.delegate = self
-        self.firstName.becomeFirstResponder()
+        self.givenName.becomeFirstResponder()
         
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
@@ -51,24 +52,20 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
         // This line informs Navigation Controller to set the nav item title in white
         self.navigationController?.navigationBar.barStyle = .Black
         
-        // Set custom bottom navbar border
-        if let navigationController = self.navigationController {
-            
-            let navigationBar = navigationController.navigationBar
-            let navBorder: UIView = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 3, navigationBar.frame.size.width, 3))
-            navBorder.backgroundColor = tealColor
-            navBorder.opaque = true
-            self.navigationController?.navigationBar.addSubview(navBorder)
-        }
-        
         self.staff.onTintColor = tealColor
         self.mentor.onTintColor = tealColor
         self.alumni.onTintColor = tealColor
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        self.navBorder.removeFromSuperview()
+        self.setNavbarBottomBorder()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         switch textField {
-        case firstName: self.lastName.becomeFirstResponder()
+        case givenName: self.lastName.becomeFirstResponder()
         case lastName: self.email.becomeFirstResponder()
         case email: self.phone.becomeFirstResponder()
         case phone: self.slack.becomeFirstResponder()
@@ -92,7 +89,7 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "dismissAndSave" {
             
-            let person = Person.init(firstName: firstName.text!,
+            let person = Person.init(givenName: givenName.text!,
                 lastName: lastName.text!,
                 emailAddress: email.text!,
                 phoneNumber: phone.text!,
@@ -108,14 +105,23 @@ class AddPersonViewController: UITableViewController, UITextFieldDelegate {
                 isMentor: mentor.on)
             
             if let p = person {
-                // Local Storage
-                Model.sharedInstance.addPerson(p)
-                
                 // CloudKit Storage
-                // Model.sharedInstance.saveRecord(p)
+                Model.sharedInstance.saveRecord(p)
             } else {
                 // TODO - Notify user to fill in first and last name
             }
+        }
+    }
+    
+    // MARK: - Custom Functions
+    
+    func setNavbarBottomBorder() {
+        if let navigationController = self.navigationController {
+            let navigationBar = navigationController.navigationBar
+            self.navBorder = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 3, navigationBar.frame.size.width, 3))
+            navBorder.backgroundColor = tealColor
+            navBorder.opaque = true
+            self.navigationController?.navigationBar.addSubview(self.navBorder)
         }
     }
 }
