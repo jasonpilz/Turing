@@ -42,10 +42,10 @@ class DetailViewController: UIViewController {
         self.configureView()
     }
     
-//    override func viewWillLayoutSubviews() {
-//        self.navBorder.removeFromSuperview()
-//        self.setNavbarBottomBorder()
-//    }
+    override func viewWillLayoutSubviews() {
+        self.navBorder.removeFromSuperview()
+        self.setNavbarBottomBorder()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -54,13 +54,13 @@ class DetailViewController: UIViewController {
     
     // MARK: - Custom Functions
     
-//    func setNavbarBottomBorder() {
-//        if let navigationController = self.navigationController {
-//            let navigationBar = navigationController.navigationBar
-//            self.navBorder = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 3, navigationBar.frame.size.width, 3))
-//            navBorder.backgroundColor = tealColor
-//            navBorder.opaque = true
-//            self.navigationController?.navigationBar.addSubview(self.navBorder)
-//        }
-//    }
+    func setNavbarBottomBorder() {
+        if let navigationController = self.navigationController {
+            let navigationBar = navigationController.navigationBar
+            self.navBorder = UIView(frame: CGRectMake(0, navigationBar.frame.size.height - 3, navigationBar.frame.size.width, 3))
+            navBorder.backgroundColor = tealColor
+            navBorder.opaque = true
+            self.navigationController?.navigationBar.addSubview(self.navBorder)
+        }
+    }
 }

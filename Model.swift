@@ -11,6 +11,7 @@ import CloudKit
 
 protocol ModelDelegate {
     func modelUpdated()
+    func errorUpdating(error: NSError)
     func updateInterfaceForNetworkIssue()
 }
 
@@ -55,6 +56,8 @@ class Model {
         UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
     }
     
+    // MARK: - Cloudkit
+    
     func toCKRecord(person: Person) -> CKRecord {
         let myRecord = CKRecord(recordType: "Person")
         myRecord.setObject(person.givenName, forKey: "givenName")
@@ -75,9 +78,6 @@ class Model {
         return myRecord
     }
     
-    
-    // MARK: - Cloudkit
-    
     func saveRecord(person: Person) {
         let theRecord = self.toCKRecord(person)
         publicDB.saveRecord(theRecord, completionHandler: ({returnRecord, error in
@@ -92,6 +92,33 @@ class Model {
                 }
             }
         }))
+    }
+    
+    func fetchPeople() {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Person", predicate: predicate)
+        
+        let sortGivenName = NSSortDescriptor(key: "givenName", ascending: true)
+        query.sortDescriptors = [sortGivenName]
+        
+        publicDB.performQuery(query, inZoneWithID: nil) { results, error in
+            if error != nil {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.delegate?.updateInterfaceForNetworkIssue()
+                    self.delegate?.errorUpdating(error!)
+                    print("Error fetching: \(error)")
+                }
+            } else {
+                self.people.removeAll(keepCapacity: true)
+                for record in results! {
+                    let person = Person(record: record, database: self.publicDB)
+                    self.people.append(person)
+                }
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.delegate?.modelUpdated()
+                }
+            }
+        }
     }
 }
 
