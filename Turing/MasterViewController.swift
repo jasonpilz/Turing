@@ -8,13 +8,13 @@
 import UIKit
 
 class MasterViewController: BaseTableViewController, ModelDelegate {
+    
+    let model = Model.sharedInstance
+    let tealColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
 
     var detailViewController: DetailViewController? = nil
     var people = Model.sharedInstance.people
-
     var navBorder:UIView = UIView()
-
-    let tealColor = UIColor(red: 5.0/255.0, green: 194.0/255.0, blue: 209.0/255.0, alpha: 1.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,10 @@ class MasterViewController: BaseTableViewController, ModelDelegate {
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
         
-        Model.sharedInstance.delegate = self
+        model.delegate = self
+        if (people.isEmpty) {
+            model.fetchPeople()
+        }
         
         // Inform Navigation Controller to set the nav item title in white
         self.navigationController?.navigationBar.barStyle = .Black
@@ -35,6 +38,10 @@ class MasterViewController: BaseTableViewController, ModelDelegate {
         
         self.navigationController?.toolbarHidden = false
         self.navigationController?.toolbar.barTintColor = tealColor
+        
+        // Set up a refresh control
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: "refreshPeople", forControlEvents: .ValueChanged)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -105,12 +112,21 @@ class MasterViewController: BaseTableViewController, ModelDelegate {
     // MARK: - ModelDelegate
     
     func modelUpdated() {
+        refreshControl?.endRefreshing()
         self.people = Model.sharedInstance.people
         tableView.reloadData()
     }
     
+    func errorUpdating(error: NSError) {
+        let message = error.localizedDescription
+        let alert = UIAlertController.init(title: "Error loading people", message: message, preferredStyle: .Alert)
+        let OKAction = UIAlertAction.init(title: "OK", style: .Default, handler: nil)
+        alert.addAction(OKAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     func updateInterfaceForNetworkIssue() {
-        //self.refreshControl?.endRefreshing()
+        self.refreshControl?.endRefreshing()
     }
     
     // MARK: - Custom Functions
@@ -124,6 +140,10 @@ class MasterViewController: BaseTableViewController, ModelDelegate {
             //self.tableView.addSubview(self.navBorder)
             self.navigationController?.navigationBar.addSubview(self.navBorder)
         }
+    }
+    
+    func refreshPeople() {
+        model.fetchPeople()
     }
     
 }

@@ -59,4 +59,25 @@ class Person: NSObject {
             return nil
         }
     }
+    
+    init(record: CKRecord, database: CKDatabase) {
+        self.record = record
+        self.database = database
+        
+        self.givenName = record.objectForKey("givenName") as! String!
+        self.lastName = record.objectForKey("lastName") as! String!
+        self.emailAddress = record.objectForKey("emailAddress") as! String!
+        self.phoneNumber = record.objectForKey("phoneNubmer") as! String!
+        self.slackScreenName = record.objectForKey("slackScreenName") as! String!
+        self.githubUserName = record.objectForKey("githubUserName") as! String!
+        self.twitterUserName = record.objectForKey("twitterUserName") as! String!
+        self.linkedInUserName = record.objectForKey("linkedInUserName") as! String!
+        self.posse = record.objectForKey("posse") as! String!
+        self.cohort = record.objectForKey("cohort") as! Int!
+        self.employer = record.objectForKey("employer") as! String!
+        self.isAlumnus = record.objectForKey("isAlumnus") as! Bool!
+        self.isStaff = record.objectForKey("isStaff") as! Bool!
+        self.isMentor = record.objectForKey("isMentor") as! Bool!
+        self.dateAdded = record.objectForKey("dateAdded") as! NSDate!
+    }
 }
