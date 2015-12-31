@@ -26,7 +26,13 @@ class MasterViewController: BaseTableViewController, ModelDelegate {
         }
         
         model.delegate = self
+        
+        // Set up a refresh control
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: "refreshPeople", forControlEvents: .ValueChanged)
+        
         if (people.isEmpty) {
+            self.refreshControl?.beginRefreshing()
             model.fetchPeople()
         }
         
@@ -38,10 +44,6 @@ class MasterViewController: BaseTableViewController, ModelDelegate {
         
         self.navigationController?.toolbarHidden = false
         self.navigationController?.toolbar.barTintColor = tealColor
-        
-        // Set up a refresh control
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: "refreshPeople", forControlEvents: .ValueChanged)
     }
     
     override func viewWillAppear(animated: Bool) {
