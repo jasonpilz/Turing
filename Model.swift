@@ -22,7 +22,13 @@ class Model {
     static let sharedInstance = Model()
     
     var delegate: ModelDelegate?
-    var people: [Person] = []
+    var people: [Person] = [] {
+        didSet {
+            people.sortInPlace { (person1, person2) -> Bool in
+                return person1.givenName < person2.givenName
+            }
+        }
+    }
     
     let container: CKContainer
     let publicDB: CKDatabase
